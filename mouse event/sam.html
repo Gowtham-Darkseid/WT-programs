@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: #3498db;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            margin: 10px;
+        }
+
+        .box:hover {
+            transform: scale(1.1);
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        .green {
+            background-color: green;
+        }
+
+        .blue {
+            background-color: blue;
+        }
+
+        .yellow {
+            background-color: yellow;
+        }
+
+        .purple {
+            background-color: purple;
+        }
+
+        .orange {
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="box1" onclick="handleClick()">Click Me</div>
+    <div class="box" id="box2" ondblclick="handleDoubleClick()">Double Click Me</div>
+    <div class="box" id="box3" onmouseover="handleMouseOver()">Mouse Over Me</div>
+    <div class="box" id="box4" onmouseout="handleMouseOut()">Mouse Out Me</div>
+    <div class="box" id="box5" onmousemove="handleMouseMove(event)">Move Over Me</div>
+    <div class="box" id="box6" onwheel="handleWheel(event)">Wheel Over Me</div>
+
+    <script>
+        function handleClick() {
+            document.getElementById("box1").classList.add("red");
+        }
+
+        function handleDoubleClick() {
+            document.getElementById("box2").classList.add("green");
+        }
+
+        function handleMouseOver() {
+            document.getElementById("box3").classList.add("blue");
+        }
+
+        function handleMouseOut() {
+            document.getElementById("box4").classList.add("yellow");
+        }
+
+        function handleMouseMove(event) {
+            document.getElementById("box5").classList.add("purple");
+        }
+
+        function handleWheel(event) {
+            document.getElementById("box6").classList.add("orange");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="cal">
+        <h2>Income tax Calculator</h2>
+        <div class="form-group">
+            <label for="income">Enter you income(in.₹)</label>
+            <input type="number" id="income" placeholder="Enter you income">
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Calculate tax" onclick="caltax()">
+        </div>
+        <div class="result" id="result"></div>
+    </div>
+    <script>
+        function caltax(){
+            var income=parseFloat(document.getElementById('income').value);
+            var tax = 0;
+
+            if(income <= 500000){
+                tax=0;
+            }
+            else if(1000000){
+                tax = (income-500000)*0.2;
+            }
+            else{
+                tax=100000+(income - 1000000)*0.3;
+            }
+            document.getElementById('result').innerText="Your Income tax is" + tax.toFixed(2);
+        }
+    </script>
+</body>
+</html>

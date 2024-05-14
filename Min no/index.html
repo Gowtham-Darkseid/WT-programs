@@ -1,0 +1,27 @@
+
+<html >
+<head>
+    <title>Minimum no</title>
+</head>
+<body>
+    <h1>MINIMUM IF 3 NO</h1>
+    <script>
+        let x =prompt("Enter the first no");
+        let y =prompt("Enter the Second no");
+        let z =prompt("Enter the third no");
+
+        if (isNaN(x,y,z)) {
+            document.write("Please enter the number not string");    
+        }
+        else if (y > x && z > x){
+            document.write("the Smallest number is " + x);
+        }
+        else if (z > y){
+            document.write("the Smallest number is" + y);
+        }
+        else{
+            document.write("the smallest number is" + z);
+        }
+    </script>
+</body>
+</html>

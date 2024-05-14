@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DATE</title>
+</head>
+<body>
+    <h1>DATE OBJECT</h1>
+    <p class="text">Date With time</p><br>
+    <button class="but" onclick="datefun()">GetDate with time</button><br>
+    <p class="text" id="date"></p></br>
+    
+    <p class="text">Date</p><br>
+    <button class="but" onclick="dayfun()">GetDate</button><br>
+    <p class="text" id="day"></p></br>
+
+
+    <p class="text">Time</p><br>
+    <button class="but" onclick="timefun()">GetTime</button><br>
+    <p class="text" id="time"></p></br>
+
+
+    <script>
+        function datefun(){
+            document.getElementById('date').innerHTML=new Date();
+        }
+        function dayfun(){
+            var dat =new Date();
+            document.getElementById('day').innerHTML=dat.getDate() +"/"+ (dat.getMonth()+1) +"/"+ dat.getFullYear();
+        }
+        function timefun(){
+            var time =new Date();
+            document.getElementById('time').innerHTML=time.getHours()+"/"+time.getMinutes()+"/"+time.getSeconds();
+        }
+    </script>
+</body>
+</html>

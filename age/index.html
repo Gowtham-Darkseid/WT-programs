@@ -1,0 +1,15 @@
+<html>
+    <body>
+        <h1>Age Calculator</h1>
+        <label id="data">Enter the DOB :</label><input type="date" id="dob"><br>
+        <button onclick="cal()">Find Age</button>
+    <script>
+        function cal(){
+            let dob=new Date(document.getElementById("dob").value);
+            let cur = Date.now() - dob.getTime();
+            let agein = new Date(cur).getFullYear()-1970;
+            alert("your age is "+agein);
+        }
+    </script>
+    </body>
+</html>

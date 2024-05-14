@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>STRING FUNCTIONS</h1><br><br>
+    <label for="inputstring">Enter the String :</label>&nbsp;<input type="text" id="inputstring" placeholder="type a stirng....">
+    
+    <label for="selectfunction">Select a function</label>
+    <select id="selectfunction">
+        <option value="length">Length</option>
+        <option value="uppercase">UpperCase</option>
+        <option value="lowercase">Lowercase</option>
+        <option value="reverse">Reversed</option>
+        <option value="substring">Substring(2-5)</option>
+        </select><br><br>
+        <button onclick="stringfun()">Apply string function</button>
+        <div id="result"></div>
+        <script>
+            function stringfun(){
+                var inputstring=document.getElementById('inputstring').value;
+                    var selectedfunction=document.getElementById('selectfunction').value;
+                    var result='';
+
+
+                    switch(selectedfunction){
+                        case 'length':
+                            result='length:' + inputstring.length;
+                            break;
+                        case 'uppercase':
+                            result='UpperCase:' + inputstring.toUpperCase();
+                            break;
+                        case 'lowercase':
+                            result='Lowercase:' + inputstring.toLowerCase();
+                            break;
+                        case 'reverse':
+                            result='Reversed:' + inputstring.split("").reverse().join('');
+                            break;
+                        case 'substring':
+                            result='Substring(2-5):' + inputstring.substring(2,6);
+                            break;
+                    }
+                    var resultDiv = document.getElementById('result');
+                    resultDiv.innerHTML=`<p>${result}</p>`;
+            }
+        </script>
+    
+</body>
+</html>

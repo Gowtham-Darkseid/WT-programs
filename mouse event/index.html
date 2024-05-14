@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mouse Events</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+  }
+  
+  .box {
+    width: 200px;
+    height: 200px;
+    background-color: #3498db;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+  }
+
+  .box:hover {
+    transform: scale(1.1);
+  }
+</style>
+</head>
+<body>
+<div class="box" id="box" onclick="handleClick()" ondblclick="handleDoubleClick()" onmouseover="handleMouseOver()" onmouseout="handleMouseOut()" onmousemove="handleMouseMove()" onwheel="handleWheel()">Hover over me!</div>
+
+<script>
+function handleClick() {
+  document.getElementById("box").innerHTML = "Click event!";
+}
+
+function handleDoubleClick() {
+  document.getElementById("box").innerHTML = "Double Click event!";
+}
+
+function handleMouseOver() {
+  document.getElementById("box").innerHTML = "Mouse Over event!";
+}
+
+function handleMouseOut() {
+  document.getElementById("box").innerHTML = "Mouse Out event!";
+}
+
+function handleMouseMove(event) {
+  document.getElementById("box").innerHTML = "Mouse Move event at (" + event.clientX + ", " + event.clientY + ")";
+}
+
+function handleWheel(event) {
+  document.getElementById("box").innerHTML = "Mouse Wheel event - Delta: " + event.deltaY;
+}
+</script>
+</body>
+</html>
