@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Calendar Display</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+text-align: center;
+}
+table {
+margin: 20px auto;
+border-collapse: collapse;
+}
+th, td {
+padding: 10px;
+border: 1px solid #ccc;
+}
+th {
+background-color: #f2f2f2;
+}
+td {
+background-color: #fff;
+}
+input[type="text"] {
+padding: 8px;
+font-size: 16px;
+margin-bottom: 10px;
+}
+input[type="submit"] {
+padding: 10px 20px;
+font-size: 16px;
+cursor: pointer;
+background-color: #4CAF50;
+color: white;
+border: none;
+border-radius: 5px;
+}
+</style>
+</head>
+<body>
+<h2>Calendar Display</h2>
+<form id="yearForm">
+<label for="yearInput">Enter a Year:</label>
+<input type="text" id="yearInput" name="yearInput" placeholder="Enter a year...">
+<input type="submit" value="Display Calendar">
+</form>
+<div id="calendarContainer"></div>
+<script>
+document.getElementById('yearForm').addEventListener('submit', function(event) {
+event.preventDefault();
+var year = document.getElementById('yearInput').value.trim();
+if (!year.match(/^\d{4}$/) || year < 2000 || year > 2024) {
+alert('Please enter a valid year between 2000 and 2024.');
+return;
+}
+displayCalendar(parseInt(year, 10));
+});
+function displayCalendar(year) {
+var calendarContainer = document.getElementById('calendarContainer');
+calendarContainer.innerHTML = ''; // Clear previous calendar
+var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+var table = document.createElement('table');
+var headerRow = table.insertRow();
+var daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+for (var j = 0; j < 7; j++) {
+var cell = headerRow.insertCell();
+cell.textContent = daysOfWeek[j];
+}
+for (var i = 0; i < 12; i++) {
+var monthName = months[i];
+var monthHeader = document.createElement('tr');
+var monthCell = document.createElement('th');
+monthCell.colSpan = '7';
+monthCell.textContent = monthName + ' ' + year;
+monthHeader.appendChild(monthCell);
+table.appendChild(monthHeader);
+var firstDay = new Date(year, i, 1);
+var lastDay = new Date(year, i + 1, 0);
+var currentDate = new Date(firstDay);
+var newRow = table.insertRow(); // Create a new row for each month
+while (currentDate <= lastDay) {
+if (currentDate.getDay() == 0) {
+newRow = table.insertRow(); // Start a new row for each week
+}
+var newCell = newRow.insertCell();
+newCell.textContent = currentDate.getDate();
+if (currentDate.getMonth() != i) {
+newCell.classList.add('disabled');
+}
+currentDate.setDate(currentDate.getDate() + 1);
+}
+}
+calendarContainer.appendChild(table);
+}
+</script>
+</body>
+</html>

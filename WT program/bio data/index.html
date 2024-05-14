@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BiO Data</title>
+</head>
+<body>
+    <h1>BIO DATA</h1>
+    <h3>Enter your Name :
+    <input type="text" id="n1" name="name" required></h3>
+    <h3>Enter your DOB :
+        <input type="date" id="dat" required>
+    </h3> 
+    <h3>Enter you Qualification :
+        <input type="text" id="Q" name="qualification" required>
+    </h3>
+    <h3>Choose Gender :
+        <label>Male</label><input type="radio" id="G" value="Male" name="gender">Female <input type="radio" id="G" value="Female" name="gender">
+    </h3>
+    <h3>
+        Enter you hobbies :
+        <input type="text" id="Ho" name="hobbie" required>
+    </h3>
+    <h3>Enter you Email :
+        <input type="email" id="em" name="email" required>
+    </h3>
+    <h3>
+        Enter you P-number :
+        <input type="number" id="ph" name="phone-no" required>
+    </h3>
+    <h3><button onclick="func()">SUBMIT</button></h3>
+
+    <script>
+        function func(){
+            let x =document.getElementById("n1").value;
+            let db =document.getElementById("dat").value;
+            let qul=document.getElementById("Q").value;
+            let Gen=document.getElementById("G").value;
+            let hob=document.getElementById("Ho").value;
+            let mail=document.getElementById("em").value;
+            let phn=document.getElementById("ph").value;
+
+            document.writeln("BIO DATA");
+            document.writeln("Name :"+x);
+            document.writeln("DOB :"+db);
+            document.writeln("Qualification :"+qul);
+            document.writeln("Gender :"+Gen);
+            document.writeln("Hobbies :"+hob);
+            document.writeln("email :"+mail);
+            document.writeln("Phone number :"+phn);
+        }
+    </script>
+</body>
+</html>
